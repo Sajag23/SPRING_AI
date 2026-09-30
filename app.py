@@ -434,6 +434,86 @@ def launch_portal_module1():
     st.session_state.pop("master_nav_radio", None)
     st.rerun()
 
+@st.dialog("📄 Executive Dossier PDF Preview", width="large")
+def preview_district_executive_report_dialog(dist_pack, pdf_path, clean_dist_key):
+    cfg = dist_pack.get("config", {})
+    tribal = dist_pack.get("tribal_demographics", {})
+    water = dist_pack.get("water_metrics", {})
+    cost = dist_pack.get("financial_costing", {})
+    
+    st.markdown(f"### 🏛️ {cfg.get('district', 'District')}, {cfg.get('state', 'State')}")
+    st.caption("AI-Powered Geospatial Decision Support Dossier • Publication Ready")
+    
+    st.info("🔒 **Status:** Official Decision Support Estimate. Generated with Random Forest GeoAI Suitability Model.")
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown("**1. Springshed & Hydrogeology:**")
+        st.write(f"- Governing Agency: `{cfg.get('govt_agency', 'CGWB & IMD')}`")
+        st.write(f"- Mean Annual Rainfall: `{cfg.get('rainfall_mean', 'N/A')} mm`")
+        st.write(f"- Elevation Range: `{cfg.get('elev_range', [0,0])[0]}m – {cfg.get('elev_range', [0,0])[1]}m MSL`")
+        st.write(f"- Primary Lithology: `{', '.join(cfg.get('lithology_types', ['Hard Rock']))[:50]}`")
+    with col2:
+        st.markdown("**2. Tribal Demographics & Impact:**")
+        st.write(f"- ST Population: `{tribal.get('st_pop_pct', 50)}%`")
+        st.write(f"- Households Served: `{tribal.get('households_impacted', 0):,}`")
+        st.write(f"- Target Communities: `{', '.join(tribal.get('tribes', ['Tribal Hamlets']))}`")
+        st.write(f"- Primary Livelihood: `{tribal.get('livelihood', 'Agriculture')}`")
+    
+    st.markdown("---")
+    c_w1, c_w2, c_w3 = st.columns(3)
+    with c_w1:
+        st.metric("Treated Catchment", f"{water.get('catchment_sqkm', 0)} sq km", f"{water.get('catchment_hectares', 0):,} Ha")
+    with c_w2:
+        st.metric("Annual Water Storage", f"{water.get('storage_ml', 0)} ML", f"+{water.get('water_table_rise_m', 0)}m Rise")
+    with c_w3:
+        st.metric("Total Budget", f"INR {cost.get('total_cost_lakhs', 0)} L", f"{cost.get('mgnrega_persondays', 0):,} Persondays")
+        
+    st.markdown("---")
+    if os.path.exists(pdf_path):
+        with open(pdf_path, "rb") as f:
+            pdf_bytes = f.read()
+        st.download_button(
+            label=f"⬇️ Download Official PDF Dossier ({cfg['district']})",
+            data=pdf_bytes,
+            file_name=f"SPRING_AI_{clean_dist_key}_Executive_Dossier.pdf",
+            mime="application/pdf",
+            key=f"dlg_dl_btn_{clean_dist_key}",
+            use_container_width=True
+        )
+
+@st.dialog("📋 Site Technical Dossier PDF Preview", width="large")
+def preview_site_technical_report_dialog(sp_data, site_data, sel_s, pdf_path):
+    st.markdown(f"### 🎯 Candidate Site: `{sel_s}`")
+    st.caption("Site-Specific Artificial Recharge Intervention & Scientific Dossier")
+    
+    s_col1, s_col2 = st.columns(2)
+    with s_col1:
+        st.markdown("**Target Spring Profile:**")
+        st.write(f"- Spring Name: **{sp_data.get('spring_name', 'N/A')}** (`{sp_data.get('spring_id', 'N/A')}`)")
+        st.write(f"- Village / Gram Panchayat: `{sp_data.get('village', 'N/A')}`")
+        st.write(f"- Elevation: `{sp_data.get('elevation', 'N/A')} m MSL`")
+        st.write(f"- Current Discharge: `{sp_data.get('current_discharge_lpm', 'N/A')} LPM`")
+    with s_col2:
+        st.markdown("**Artificial Recharge Intervention:**")
+        st.write(f"- Recommended Structure: **{site_data.get('recommended_structure', 'Contour Trench')}**")
+        st.write(f"- Priority Level: `{site_data.get('priority_level', 'HIGH')}`")
+        st.write(f"- Recharge Suitability: `{float(sp_data.get('recharge_probability', 0.8))*100:.1f}%`")
+        st.write(f"- Hazard Status: `{sp_data.get('landslide_risk', 'Low (Safe Slope)')}`")
+
+    st.markdown("---")
+    if os.path.exists(pdf_path):
+        with open(pdf_path, "rb") as f:
+            site_bytes = f.read()
+        st.download_button(
+            label=f"⬇️ Download Technical PDF Dossier ({sel_s})",
+            data=site_bytes,
+            file_name=f"SPRING_AI_{sel_s}.pdf",
+            mime="application/pdf",
+            key=f"dlg_site_dl_{sel_s}",
+            use_container_width=True
+        )
+
 def render_district_side_panel(dist_pack):
     cfg = dist_pack["config"]
     tribal = dist_pack.get("tribal_demographics", {})
@@ -464,18 +544,19 @@ def render_district_side_panel(dist_pack):
 
     report_file = f"reports/SPRING_AI_{cfg['district'].replace(' ', '_')}_Executive_Report.pdf"
     clean_dist_key = cfg['district'].replace(' ', '_').replace('🌐', '').replace('🇮🇳', '').strip()
-    if st.button("📥 Generate District Executive Report (PDF)", key=f"pdf_btn_{clean_dist_key}", use_container_width=True):
-        os.makedirs("reports", exist_ok=True)
-        generate_district_executive_report(dist_pack, report_file)
-        st.session_state[f"exec_pdf_ready_{clean_dist_key}"] = True
-        st.success(f"Generated Executive Dossier for {cfg['district']}!")
-
-    if os.path.exists(report_file) or st.session_state.get(f"exec_pdf_ready_{clean_dist_key}"):
+    
+    col_p1, col_p2 = st.columns([1.1, 1])
+    with col_p1:
+        if st.button("👁️ Preview & Export PDF", key=f"pdf_btn_{clean_dist_key}", use_container_width=True):
+            os.makedirs("reports", exist_ok=True)
+            generate_district_executive_report(dist_pack, report_file)
+            preview_district_executive_report_dialog(dist_pack, report_file, clean_dist_key)
+    with col_p2:
         if os.path.exists(report_file):
             with open(report_file, "rb") as f:
                 pdf_data = f.read()
             st.download_button(
-                label=f"⬇️ Download {cfg['district']} Executive PDF Dossier",
+                label=f"⬇️ Direct Download",
                 data=pdf_data,
                 file_name=f"SPRING_AI_{clean_dist_key}_Executive_Dossier.pdf",
                 mime="application/pdf",
@@ -794,22 +875,23 @@ else:
                 sp_d = df_springs[df_springs["spring_id"] == site_d["nearest_spring_id"]].iloc[0] if not df_springs.empty else {}
                 pdf_path = f"reports/Report_{sel_s}.pdf"
                 
-                if st.button("📥 Generate Site Technical Dossier (PDF)", key=f"btn_gen_{sel_s}"):
-                    os.makedirs("reports", exist_ok=True)
-                    generate_spring_pdf_report(sp_d.to_dict() if hasattr(sp_d, 'to_dict') else {}, site_d.to_dict(), pdf_path)
-                    st.session_state[f"site_pdf_ready_{sel_s}"] = True
-                    st.success(f"Generated Technical PDF Dossier for {sel_s}!")
-
-                if st.session_state.get(f"site_pdf_ready_{sel_s}") or os.path.exists(pdf_path):
+                col_s1, col_s2 = st.columns([1.2, 1])
+                with col_s1:
+                    if st.button("👁️ Preview & Export PDF", key=f"btn_preview_{sel_s}", use_container_width=True):
+                        os.makedirs("reports", exist_ok=True)
+                        generate_spring_pdf_report(sp_d.to_dict() if hasattr(sp_d, 'to_dict') else {}, site_d.to_dict(), pdf_path)
+                        preview_site_technical_report_dialog(sp_d.to_dict() if hasattr(sp_d, 'to_dict') else {}, site_d.to_dict(), sel_s, pdf_path)
+                with col_s2:
                     if os.path.exists(pdf_path):
                         with open(pdf_path, "rb") as f:
                             site_pdf_data = f.read()
                         st.download_button(
-                            label=f"⬇️ Download Site Technical PDF ({sel_s})",
+                            label=f"⬇️ Direct Download ({sel_s})",
                             data=site_pdf_data,
                             file_name=f"SPRING_AI_{sel_s}.pdf",
                             mime="application/pdf",
-                            key=f"dl_site_{sel_s}"
+                            key=f"dl_site_{sel_s}",
+                            use_container_width=True
                         )
 
             if st.button("🚀 Retrain AI Model on Field Logs"):
