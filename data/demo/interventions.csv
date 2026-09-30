@@ -1,0 +1,35 @@
+site_id,latitude,longitude,nearest_spring_id,elevation,slope,recommended_structure,priority_level,suitability_score,confidence_score,risk_status,existing_structure,field_status
+KPT-INT-001,18.68999,82.86949,KPT-SPR-002,903.6,9.2,Loose Boulder Check Dam (LBCD),MEDIUM,0.79,0.73,Low,Dilapidated Check Dam,Proposed
+KPT-INT-002,18.74716,82.86801,KPT-SPR-003,940.3,20.1,Staggered Contour Trench (SCT),MEDIUM,0.82,0.73,Moderate,Natural Gully,Under Construction
+KPT-INT-003,18.65862,82.5472,KPT-SPR-004,839.9,25.8,Staggered Contour Trench (SCT),MEDIUM,0.76,0.84,High,None,Proposed
+KPT-INT-004,18.60115,82.70547,KPT-SPR-005,903.2,20.8,Staggered Contour Trench (SCT),HIGH,0.87,0.74,Moderate,None,Proposed
+KPT-INT-005,19.04494,82.87935,KPT-SPR-006,714.3,25.7,Staggered Contour Trench (SCT),LOW,0.69,0.88,High,Dilapidated Check Dam,Field Verified
+KPT-INT-006,19.00656,83.14635,KPT-SPR-007,825.2,18.1,Staggered Contour Trench (SCT),MEDIUM,0.76,0.89,Moderate,Dilapidated Check Dam,Proposed
+KPT-INT-007,18.94148,83.30184,KPT-SPR-008,707.8,10.7,Loose Boulder Check Dam (LBCD),HIGH,0.88,0.72,Low,Natural Gully,Under Construction
+KPT-INT-008,18.86087,83.16299,KPT-SPR-009,664.9,11.9,Loose Boulder Check Dam (LBCD),MEDIUM,0.74,0.88,Low,Dilapidated Check Dam,Proposed
+KPT-INT-009,19.05512,82.52668,KPT-SPR-010,675.8,22.7,Staggered Contour Trench (SCT),MEDIUM,0.75,0.74,Moderate,Dilapidated Check Dam,Proposed
+KPT-INT-010,18.55157,82.85769,KPT-SPR-011,1015.9,13.4,Loose Boulder Check Dam (LBCD),MEDIUM,0.75,0.79,Low,None,Proposed
+KPT-INT-011,18.68868,82.87456,KPT-SPR-012,879.9,25.2,Staggered Contour Trench (SCT),MEDIUM,0.81,0.83,High,Natural Gully,Proposed
+KPT-INT-012,18.74083,82.82788,KPT-SPR-013,849.8,14.2,Loose Boulder Check Dam (LBCD),HIGH,0.88,0.75,Low,None,Proposed
+KPT-INT-013,18.68996,82.56137,KPT-SPR-014,804.5,28.2,Staggered Contour Trench (SCT),MEDIUM,0.72,0.78,High,None,Under Construction
+KPT-INT-014,18.60025,82.72086,KPT-SPR-015,895.8,6.9,Percolation Pond,LOW,0.69,0.73,Low,None,Field Verified
+KPT-INT-015,19.03666,82.84881,KPT-SPR-016,717.7,16.3,Staggered Contour Trench (SCT),HIGH,0.94,0.8,Low,None,Proposed
+KPT-INT-016,18.9937,83.15378,KPT-SPR-017,818.2,17.0,Staggered Contour Trench (SCT),MEDIUM,0.72,0.9,Low,None,Under Construction
+KPT-INT-017,18.92314,83.3057,KPT-SPR-018,629.5,12.8,Loose Boulder Check Dam (LBCD),HIGH,0.83,0.88,Low,None,Proposed
+KPT-INT-018,18.8725,83.1836,KPT-SPR-019,690.9,11.2,Loose Boulder Check Dam (LBCD),MEDIUM,0.73,0.79,Low,None,Under Construction
+KPT-INT-019,19.05834,82.54276,KPT-SPR-020,622.9,28.2,Staggered Contour Trench (SCT),HIGH,0.88,0.81,High,None,Field Verified
+KPT-INT-020,18.5419,82.86786,KPT-SPR-021,1005.6,21.8,Staggered Contour Trench (SCT),HIGH,0.9,0.85,Moderate,None,Field Verified
+KPT-INT-021,18.7001,82.86228,KPT-SPR-022,884.3,24.7,Staggered Contour Trench (SCT),HIGH,0.92,0.77,Moderate,Dilapidated Check Dam,Field Verified
+KPT-INT-022,18.7222,82.83627,KPT-SPR-023,838.6,5.5,Percolation Pond,HIGH,0.92,0.75,Low,None,Field Verified
+KPT-INT-023,18.64795,82.57632,KPT-SPR-024,799.2,11.6,Loose Boulder Check Dam (LBCD),MEDIUM,0.8,0.85,Low,None,Proposed
+KPT-INT-024,18.58298,82.72185,KPT-SPR-025,943.7,28.9,Staggered Contour Trench (SCT),HIGH,0.86,0.73,High,Dilapidated Check Dam,Field Verified
+KPT-INT-025,19.06239,82.82298,KPT-SPR-026,743.4,13.0,Loose Boulder Check Dam (LBCD),HIGH,0.92,0.79,Low,None,Field Verified
+KPT-INT-026,19.01461,83.10035,KPT-SPR-027,793.6,25.8,Staggered Contour Trench (SCT),HIGH,0.91,0.83,High,Dilapidated Check Dam,Proposed
+KPT-INT-027,18.95068,83.30761,KPT-SPR-028,668.0,25.1,Staggered Contour Trench (SCT),MEDIUM,0.81,0.84,High,Natural Gully,Proposed
+KPT-INT-028,18.85951,83.16545,KPT-SPR-029,619.5,25.1,Staggered Contour Trench (SCT),HIGH,0.84,0.77,High,Natural Gully,Proposed
+KPT-INT-029,19.01921,82.55591,KPT-SPR-030,615.2,10.6,Loose Boulder Check Dam (LBCD),MEDIUM,0.73,0.86,Low,None,Proposed
+KPT-INT-030,18.57372,82.87666,KPT-SPR-031,977.1,15.4,Staggered Contour Trench (SCT),HIGH,0.86,0.79,Low,None,Under Construction
+KPT-INT-031,18.67752,82.86502,KPT-SPR-032,911.5,20.4,Staggered Contour Trench (SCT),HIGH,0.91,0.82,Moderate,None,Field Verified
+KPT-INT-032,18.72865,82.82911,KPT-SPR-033,909.0,21.8,Staggered Contour Trench (SCT),HIGH,0.88,0.89,Moderate,None,Under Construction
+KPT-INT-033,18.68419,82.59084,KPT-SPR-034,791.7,6.5,Percolation Pond,HIGH,0.91,0.87,Low,None,Proposed
+KPT-INT-034,18.56863,82.73641,KPT-SPR-035,915.4,26.3,Staggered Contour Trench (SCT),HIGH,0.88,0.79,High,None,Proposed

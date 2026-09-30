@@ -1,0 +1,14 @@
+[
+  "elevation",
+  "slope",
+  "aspect",
+  "rainfall",
+  "drainage_density",
+  "distance_to_drainage",
+  "distance_to_spring",
+  "fracture_density",
+  "distance_to_fault",
+  "land_use_code",
+  "soil_permeability",
+  "lithology_code"
+]

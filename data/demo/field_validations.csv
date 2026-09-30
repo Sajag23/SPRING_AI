@@ -1,0 +1,3 @@
+validation_id,site_id,spring_id,date,observer_name,observed_slope_deg,observed_geology,observed_soil,existing_structure,validation_status,notes,discharge_impact_observed
+KPT-VAL-001,KPT-INT-001,KPT-SPR-001,2026-09-10,"Sujit Nayak (Assistant Hydrogeologist, CGWB Koraput)",13.8,Fractured Khondalite,Permeable Gravelly Loam,,Suitable,Verified in field. Excellent fracture connectivity towards Bogra Dhara spring catchment.,Logged (Pre-construction)
+VAL-002,INT-003,SPR-004,2026-09-22,Ramesh Kumar (Jal Sai),14.5,Fractured Granite,Permeable Gravelly Loam,None,Suitable,Site has excellent catchment topography with visible fracture orientation feeding the lower spring.,Logged

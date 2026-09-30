@@ -1,0 +1,11 @@
+state,district,lat,lon,govt_agency,lithology,elev_mean,real_satellite_elevation_meters
+Odisha,Koraput,18.8132,82.7126,CGWB Odisha & IMD Pune,Khondalite & Charnockite (GSI Bhukosh),890,886.0
+Andhra Pradesh,Alluri Sitharama Raju (Araku),18.3273,82.8775,CGWB AP & IMD Pune,Khondalite & Quartzite (GSI Bhukosh),950,909.0
+Madhya Pradesh,Dindori,22.9515,81.0825,CGWB MP & IMD Pune,Deccan Trap Basalt (GSI Bhukosh),680,673.0
+Uttarakhand,Tehri Garhwal,30.3753,78.4344,CGWB UK & Jal Jeevan Mission,"Slate, Schist & Krol Limestone (GSI)",1550,1777.0
+Meghalaya,West Garo Hills,25.5138,90.2033,CGWB NE & Meghalaya Water Foundation,Archaean Gneiss & Sandstone (GSI),420,311.0
+Jharkhand,Ranchi (Chota Nagpur),23.3441,85.3096,CGWB Jharkhand & IMD Pune,Granite-Gneiss & Quartzite (GSI),650,641.0
+Chhattisgarh,Bastar,19.0744,82.0298,CGWB Chhattisgarh & IMD,Iron-Ore Series & Granites (GSI),580,561.0
+Himachal Pradesh,Kinnaur,31.651,78.4754,CGWB HP & HP State Council for Climate,Crystalline Schists & Gneiss (GSI),2200,3551.0
+Sikkim,East Sikkim (Dhara Vikas),27.3314,88.6138,RM&DD Sikkim & NITI Aayog,Daling Series Slate & Schist (GSI),1600,1635.0
+Kerala,Wayanad,11.6854,76.132,CGWB Kerala & CWRDM Calicut,Laterite & Charnockite (GSI),750,765.0

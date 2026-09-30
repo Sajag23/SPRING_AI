@@ -1,0 +1,41 @@
+spring_id,spring_name,latitude,longitude,elevation,village,district,state,spring_type,current_discharge_lpm,seasonal_status,recharge_probability,confidence_score,landslide_risk
+KPT-SPR-001,Bogra Dhara #1,18.57271,82.88605,875.7,Pottangi,Koraput,Odisha,Gravity Depression Spring,22.7,Stable,0.83,0.74,Low
+KPT-SPR-002,Deomali Hill Spring #2,18.69237,82.84285,967.1,Semiliguda,Koraput,Odisha,Fracture Spring,8.0,Healthy,0.79,0.86,Low
+KPT-SPR-003,Upper Pottangi Jharna #3,18.74502,82.84723,799.7,Sunabeda,Koraput,Odisha,Contact Spring,13.4,Stable,0.84,0.82,High
+KPT-SPR-004,Gupteswar Chhoa #4,18.69213,82.55924,771.4,Lamtaput,Koraput,Odisha,Gravity Depression Spring,13.0,Stable,0.87,0.82,High
+KPT-SPR-005,Kolab Catchment Spring #5,18.54797,82.67873,980.3,Nandapur,Koraput,Odisha,Fracture Spring,28.7,Declining,0.82,0.81,Low
+KPT-SPR-006,Machkund Upper Dhara #6,19.02101,82.85722,654.1,Dasamantapur,Koraput,Odisha,Fracture Spring,6.3,Healthy,0.62,0.8,Moderate
+KPT-SPR-007,Sunabeda Naula #7,19.02394,83.12325,832.2,Laxmipur,Koraput,Odisha,Contact Spring,5.1,Healthy,0.87,0.85,Moderate
+KPT-SPR-008,Lamtaput Mukhya Dhara #8,18.94397,83.32253,611.8,Bandhugaon,Koraput,Odisha,Contact Spring,31.8,Stable,0.59,0.87,Moderate
+KPT-SPR-009,Dasamantapur Hill Spring #9,18.88661,83.18375,735.1,Narayanpatna,Koraput,Odisha,Gravity Depression Spring,10.1,Healthy,0.58,0.83,Low
+KPT-SPR-010,Laxmipur Jharna #10,19.02474,82.51206,698.4,Borigumma,Koraput,Odisha,Contact Spring,7.8,Stable,0.81,0.85,Low
+KPT-SPR-011,Nandapur Waterfall Feeder #11,18.56439,82.85958,1063.8,Pottangi,Koraput,Odisha,Fracture Spring,9.2,Critical,0.84,0.9,Moderate
+KPT-SPR-012,Narayanpatna Tribal Spring #12,18.69528,82.90368,957.3,Semiliguda,Koraput,Odisha,Contact Spring,11.7,Declining,0.7,0.74,Moderate
+KPT-SPR-013,Bogra Dhara #13,18.75782,82.83529,877.4,Sunabeda,Koraput,Odisha,Contact Spring,5.9,Stable,0.69,0.78,Low
+KPT-SPR-014,Deomali Hill Spring #14,18.70649,82.52886,809.6,Lamtaput,Koraput,Odisha,Gravity Depression Spring,9.7,Healthy,0.59,0.84,Low
+KPT-SPR-015,Upper Pottangi Jharna #15,18.59707,82.74101,979.1,Nandapur,Koraput,Odisha,Gravity Depression Spring,21.3,Stable,0.65,0.87,Low
+KPT-SPR-016,Gupteswar Chhoa #16,19.0739,82.83331,746.2,Dasamantapur,Koraput,Odisha,Fracture Spring,13.8,Critical,0.91,0.81,High
+KPT-SPR-017,Kolab Catchment Spring #17,18.99175,83.10613,869.4,Laxmipur,Koraput,Odisha,Contact Spring,54.5,Healthy,0.86,0.89,Low
+KPT-SPR-018,Machkund Upper Dhara #18,18.95874,83.2768,633.8,Bandhugaon,Koraput,Odisha,Gravity Depression Spring,10.3,Declining,0.82,0.9,Low
+KPT-SPR-019,Sunabeda Naula #19,18.84401,83.15873,584.8,Narayanpatna,Koraput,Odisha,Fracture Spring,17.6,Stable,0.67,0.78,Low
+KPT-SPR-020,Lamtaput Mukhya Dhara #20,19.05902,82.52144,676.1,Borigumma,Koraput,Odisha,Fracture Spring,18.7,Stable,0.63,0.84,Low
+KPT-SPR-021,Dasamantapur Hill Spring #21,18.59848,82.88244,944.2,Pottangi,Koraput,Odisha,Contact Spring,4.2,Critical,0.75,0.8,Low
+KPT-SPR-022,Laxmipur Jharna #22,18.71403,82.88587,900.1,Semiliguda,Koraput,Odisha,Fracture Spring,11.3,Declining,0.79,0.89,Low
+KPT-SPR-023,Nandapur Waterfall Feeder #23,18.75419,82.88208,811.0,Sunabeda,Koraput,Odisha,Fracture Spring,2.5,Stable,0.67,0.83,Low
+KPT-SPR-024,Narayanpatna Tribal Spring #24,18.7049,82.59736,723.9,Lamtaput,Koraput,Odisha,Contact Spring,3.6,Critical,0.74,0.87,Low
+KPT-SPR-025,Bogra Dhara #25,18.56756,82.69094,886.5,Nandapur,Koraput,Odisha,Contact Spring,11.3,Stable,0.56,0.77,Moderate
+KPT-SPR-026,Deomali Hill Spring #26,19.03558,82.85727,768.2,Dasamantapur,Koraput,Odisha,Contact Spring,16.0,Declining,0.66,0.77,Moderate
+KPT-SPR-027,Upper Pottangi Jharna #27,18.99366,83.10485,742.5,Laxmipur,Koraput,Odisha,Contact Spring,7.3,Declining,0.81,0.88,Low
+KPT-SPR-028,Gupteswar Chhoa #28,18.97245,83.27537,596.5,Bandhugaon,Koraput,Odisha,Contact Spring,4.1,Healthy,0.56,0.72,Low
+KPT-SPR-029,Kolab Catchment Spring #29,18.85831,83.19013,581.5,Narayanpatna,Koraput,Odisha,Gravity Depression Spring,14.6,Declining,0.86,0.78,Low
+KPT-SPR-030,Machkund Upper Dhara #30,19.05396,82.53678,606.0,Borigumma,Koraput,Odisha,Fracture Spring,19.4,Stable,0.77,0.74,Low
+KPT-SPR-031,Sunabeda Naula #31,18.60645,82.87592,996.5,Pottangi,Koraput,Odisha,Fracture Spring,26.4,Declining,0.66,0.77,Low
+KPT-SPR-032,Lamtaput Mukhya Dhara #32,18.71136,82.89909,1009.7,Semiliguda,Koraput,Odisha,Gravity Depression Spring,4.5,Healthy,0.75,0.86,Low
+KPT-SPR-033,Dasamantapur Hill Spring #33,18.74221,82.87731,896.5,Sunabeda,Koraput,Odisha,Fracture Spring,13.4,Healthy,0.81,0.81,Moderate
+KPT-SPR-034,Laxmipur Jharna #34,18.68411,82.56699,725.3,Lamtaput,Koraput,Odisha,Fracture Spring,13.9,Healthy,0.91,0.91,Low
+KPT-SPR-035,Nandapur Waterfall Feeder #35,18.6093,82.72518,935.9,Nandapur,Koraput,Odisha,Fracture Spring,7.4,Stable,0.67,0.9,Low
+KPT-SPR-036,Narayanpatna Tribal Spring #36,19.01071,82.86478,711.6,Dasamantapur,Koraput,Odisha,Gravity Depression Spring,14.6,Stable,0.56,0.92,High
+KPT-SPR-037,Bogra Dhara #37,19.0257,83.08852,924.1,Laxmipur,Koraput,Odisha,Fracture Spring,14.2,Critical,0.88,0.76,Low
+KPT-SPR-038,Deomali Hill Spring #38,18.95282,83.33963,576.1,Bandhugaon,Koraput,Odisha,Gravity Depression Spring,53.3,Healthy,0.91,0.87,Low
+KPT-SPR-039,Upper Pottangi Jharna #39,18.85949,83.19405,567.2,Narayanpatna,Koraput,Odisha,Gravity Depression Spring,23.7,Stable,0.83,0.84,Moderate
+KPT-SPR-040,Gupteswar Chhoa #40,19.03168,82.54276,550.5,Borigumma,Koraput,Odisha,Contact Spring,45.1,Stable,0.68,0.82,Moderate

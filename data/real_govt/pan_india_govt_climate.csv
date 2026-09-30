@@ -1,0 +1,121 @@
+state,district,year_month,real_monthly_rainfall_mm,real_temperature_c,govt_datasource
+Odisha,Koraput,2020-01,14.9,18.0,NASA POWER API / IMD Baseline
+Odisha,Koraput,2020-02,31.3,20.3,NASA POWER API / IMD Baseline
+Odisha,Koraput,2020-03,46.5,25.6,NASA POWER API / IMD Baseline
+Odisha,Koraput,2020-04,115.5,29.0,NASA POWER API / IMD Baseline
+Odisha,Koraput,2020-05,57.5,29.9,NASA POWER API / IMD Baseline
+Odisha,Koraput,2020-06,211.0,26.8,NASA POWER API / IMD Baseline
+Odisha,Koraput,2020-07,229.2,25.2,NASA POWER API / IMD Baseline
+Odisha,Koraput,2020-08,389.4,24.2,NASA POWER API / IMD Baseline
+Odisha,Koraput,2020-09,255.4,24.7,NASA POWER API / IMD Baseline
+Odisha,Koraput,2020-10,150.8,22.9,NASA POWER API / IMD Baseline
+Odisha,Koraput,2020-11,23.7,19.9,NASA POWER API / IMD Baseline
+Odisha,Koraput,2020-12,0.0,16.6,NASA POWER API / IMD Baseline
+Andhra Pradesh,Alluri Sitharama Raju (Araku),2020-01,15.5,19.1,NASA POWER API / IMD Baseline
+Andhra Pradesh,Alluri Sitharama Raju (Araku),2020-02,35.6,21.3,NASA POWER API / IMD Baseline
+Andhra Pradesh,Alluri Sitharama Raju (Araku),2020-03,38.3,25.9,NASA POWER API / IMD Baseline
+Andhra Pradesh,Alluri Sitharama Raju (Araku),2020-04,114.3,29.5,NASA POWER API / IMD Baseline
+Andhra Pradesh,Alluri Sitharama Raju (Araku),2020-05,63.8,29.9,NASA POWER API / IMD Baseline
+Andhra Pradesh,Alluri Sitharama Raju (Araku),2020-06,167.2,27.1,NASA POWER API / IMD Baseline
+Andhra Pradesh,Alluri Sitharama Raju (Araku),2020-07,189.4,25.8,NASA POWER API / IMD Baseline
+Andhra Pradesh,Alluri Sitharama Raju (Araku),2020-08,289.7,25.1,NASA POWER API / IMD Baseline
+Andhra Pradesh,Alluri Sitharama Raju (Araku),2020-09,242.9,25.1,NASA POWER API / IMD Baseline
+Andhra Pradesh,Alluri Sitharama Raju (Araku),2020-10,240.2,23.5,NASA POWER API / IMD Baseline
+Andhra Pradesh,Alluri Sitharama Raju (Araku),2020-11,52.3,20.5,NASA POWER API / IMD Baseline
+Andhra Pradesh,Alluri Sitharama Raju (Araku),2020-12,0.0,17.8,NASA POWER API / IMD Baseline
+Madhya Pradesh,Dindori,2020-01,55.9,13.6,NASA POWER API / IMD Baseline
+Madhya Pradesh,Dindori,2020-02,49.2,16.3,NASA POWER API / IMD Baseline
+Madhya Pradesh,Dindori,2020-03,67.8,21.9,NASA POWER API / IMD Baseline
+Madhya Pradesh,Dindori,2020-04,52.9,27.9,NASA POWER API / IMD Baseline
+Madhya Pradesh,Dindori,2020-05,95.2,30.3,NASA POWER API / IMD Baseline
+Madhya Pradesh,Dindori,2020-06,286.1,26.6,NASA POWER API / IMD Baseline
+Madhya Pradesh,Dindori,2020-07,250.5,25.4,NASA POWER API / IMD Baseline
+Madhya Pradesh,Dindori,2020-08,446.0,25.0,NASA POWER API / IMD Baseline
+Madhya Pradesh,Dindori,2020-09,124.3,24.8,NASA POWER API / IMD Baseline
+Madhya Pradesh,Dindori,2020-10,66.3,22.8,NASA POWER API / IMD Baseline
+Madhya Pradesh,Dindori,2020-11,13.7,18.2,NASA POWER API / IMD Baseline
+Madhya Pradesh,Dindori,2020-12,5.8,16.4,NASA POWER API / IMD Baseline
+Uttarakhand,Tehri Garhwal,2020-01,93.6,6.4,NASA POWER API / IMD Baseline
+Uttarakhand,Tehri Garhwal,2020-02,42.3,9.7,NASA POWER API / IMD Baseline
+Uttarakhand,Tehri Garhwal,2020-03,126.5,13.0,NASA POWER API / IMD Baseline
+Uttarakhand,Tehri Garhwal,2020-04,67.5,18.2,NASA POWER API / IMD Baseline
+Uttarakhand,Tehri Garhwal,2020-05,75.7,22.4,NASA POWER API / IMD Baseline
+Uttarakhand,Tehri Garhwal,2020-06,118.9,24.3,NASA POWER API / IMD Baseline
+Uttarakhand,Tehri Garhwal,2020-07,389.7,23.7,NASA POWER API / IMD Baseline
+Uttarakhand,Tehri Garhwal,2020-08,325.9,22.9,NASA POWER API / IMD Baseline
+Uttarakhand,Tehri Garhwal,2020-09,45.6,21.7,NASA POWER API / IMD Baseline
+Uttarakhand,Tehri Garhwal,2020-10,0.0,18.5,NASA POWER API / IMD Baseline
+Uttarakhand,Tehri Garhwal,2020-11,18.8,13.3,NASA POWER API / IMD Baseline
+Uttarakhand,Tehri Garhwal,2020-12,14.0,10.8,NASA POWER API / IMD Baseline
+Meghalaya,West Garo Hills,2020-01,22.8,15.5,NASA POWER API / IMD Baseline
+Meghalaya,West Garo Hills,2020-02,6.1,18.1,NASA POWER API / IMD Baseline
+Meghalaya,West Garo Hills,2020-03,39.2,23.8,NASA POWER API / IMD Baseline
+Meghalaya,West Garo Hills,2020-04,305.8,26.5,NASA POWER API / IMD Baseline
+Meghalaya,West Garo Hills,2020-05,715.6,27.1,NASA POWER API / IMD Baseline
+Meghalaya,West Garo Hills,2020-06,549.9,27.9,NASA POWER API / IMD Baseline
+Meghalaya,West Garo Hills,2020-07,622.0,27.9,NASA POWER API / IMD Baseline
+Meghalaya,West Garo Hills,2020-08,308.0,28.4,NASA POWER API / IMD Baseline
+Meghalaya,West Garo Hills,2020-09,583.7,27.6,NASA POWER API / IMD Baseline
+Meghalaya,West Garo Hills,2020-10,294.3,26.9,NASA POWER API / IMD Baseline
+Meghalaya,West Garo Hills,2020-11,2.1,21.4,NASA POWER API / IMD Baseline
+Meghalaya,West Garo Hills,2020-12,0.0,17.2,NASA POWER API / IMD Baseline
+Jharkhand,Ranchi (Chota Nagpur),2020-01,34.0,13.0,NASA POWER API / IMD Baseline
+Jharkhand,Ranchi (Chota Nagpur),2020-02,21.6,15.4,NASA POWER API / IMD Baseline
+Jharkhand,Ranchi (Chota Nagpur),2020-03,93.3,21.3,NASA POWER API / IMD Baseline
+Jharkhand,Ranchi (Chota Nagpur),2020-04,63.2,26.8,NASA POWER API / IMD Baseline
+Jharkhand,Ranchi (Chota Nagpur),2020-05,51.1,29.7,NASA POWER API / IMD Baseline
+Jharkhand,Ranchi (Chota Nagpur),2020-06,352.6,27.1,NASA POWER API / IMD Baseline
+Jharkhand,Ranchi (Chota Nagpur),2020-07,403.1,26.0,NASA POWER API / IMD Baseline
+Jharkhand,Ranchi (Chota Nagpur),2020-08,369.1,25.6,NASA POWER API / IMD Baseline
+Jharkhand,Ranchi (Chota Nagpur),2020-09,337.1,25.1,NASA POWER API / IMD Baseline
+Jharkhand,Ranchi (Chota Nagpur),2020-10,118.9,23.3,NASA POWER API / IMD Baseline
+Jharkhand,Ranchi (Chota Nagpur),2020-11,8.2,18.5,NASA POWER API / IMD Baseline
+Jharkhand,Ranchi (Chota Nagpur),2020-12,0.9,15.0,NASA POWER API / IMD Baseline
+Chhattisgarh,Bastar,2020-01,13.4,18.5,NASA POWER API / IMD Baseline
+Chhattisgarh,Bastar,2020-02,30.1,20.7,NASA POWER API / IMD Baseline
+Chhattisgarh,Bastar,2020-03,46.5,26.2,NASA POWER API / IMD Baseline
+Chhattisgarh,Bastar,2020-04,107.9,29.9,NASA POWER API / IMD Baseline
+Chhattisgarh,Bastar,2020-05,52.3,31.0,NASA POWER API / IMD Baseline
+Chhattisgarh,Bastar,2020-06,218.3,27.4,NASA POWER API / IMD Baseline
+Chhattisgarh,Bastar,2020-07,234.4,25.7,NASA POWER API / IMD Baseline
+Chhattisgarh,Bastar,2020-08,406.4,24.9,NASA POWER API / IMD Baseline
+Chhattisgarh,Bastar,2020-09,256.0,25.4,NASA POWER API / IMD Baseline
+Chhattisgarh,Bastar,2020-10,144.7,23.8,NASA POWER API / IMD Baseline
+Chhattisgarh,Bastar,2020-11,21.9,20.6,NASA POWER API / IMD Baseline
+Chhattisgarh,Bastar,2020-12,0.0,17.1,NASA POWER API / IMD Baseline
+Himachal Pradesh,Kinnaur,2020-01,69.6,-18.8,NASA POWER API / IMD Baseline
+Himachal Pradesh,Kinnaur,2020-02,20.7,-17.2,NASA POWER API / IMD Baseline
+Himachal Pradesh,Kinnaur,2020-03,84.2,-13.6,NASA POWER API / IMD Baseline
+Himachal Pradesh,Kinnaur,2020-04,46.2,-6.7,NASA POWER API / IMD Baseline
+Himachal Pradesh,Kinnaur,2020-05,44.1,-1.2,NASA POWER API / IMD Baseline
+Himachal Pradesh,Kinnaur,2020-06,49.9,3.1,NASA POWER API / IMD Baseline
+Himachal Pradesh,Kinnaur,2020-07,104.9,6.1,NASA POWER API / IMD Baseline
+Himachal Pradesh,Kinnaur,2020-08,90.0,7.6,NASA POWER API / IMD Baseline
+Himachal Pradesh,Kinnaur,2020-09,10.0,2.5,NASA POWER API / IMD Baseline
+Himachal Pradesh,Kinnaur,2020-10,0.0,-2.7,NASA POWER API / IMD Baseline
+Himachal Pradesh,Kinnaur,2020-11,32.2,-10.1,NASA POWER API / IMD Baseline
+Himachal Pradesh,Kinnaur,2020-12,14.0,-15.9,NASA POWER API / IMD Baseline
+Sikkim,East Sikkim (Dhara Vikas),2020-01,21.3,-1.8,NASA POWER API / IMD Baseline
+Sikkim,East Sikkim (Dhara Vikas),2020-02,26.8,0.2,NASA POWER API / IMD Baseline
+Sikkim,East Sikkim (Dhara Vikas),2020-03,78.7,3.3,NASA POWER API / IMD Baseline
+Sikkim,East Sikkim (Dhara Vikas),2020-04,112.8,5.7,NASA POWER API / IMD Baseline
+Sikkim,East Sikkim (Dhara Vikas),2020-05,165.7,9.3,NASA POWER API / IMD Baseline
+Sikkim,East Sikkim (Dhara Vikas),2020-06,381.8,12.6,NASA POWER API / IMD Baseline
+Sikkim,East Sikkim (Dhara Vikas),2020-07,564.5,13.3,NASA POWER API / IMD Baseline
+Sikkim,East Sikkim (Dhara Vikas),2020-08,297.9,13.8,NASA POWER API / IMD Baseline
+Sikkim,East Sikkim (Dhara Vikas),2020-09,387.0,12.5,NASA POWER API / IMD Baseline
+Sikkim,East Sikkim (Dhara Vikas),2020-10,33.1,10.2,NASA POWER API / IMD Baseline
+Sikkim,East Sikkim (Dhara Vikas),2020-11,0.6,4.3,NASA POWER API / IMD Baseline
+Sikkim,East Sikkim (Dhara Vikas),2020-12,9.4,2.1,NASA POWER API / IMD Baseline
+Kerala,Wayanad,2020-01,4.9,23.1,NASA POWER API / IMD Baseline
+Kerala,Wayanad,2020-02,3.3,25.0,NASA POWER API / IMD Baseline
+Kerala,Wayanad,2020-03,15.8,27.1,NASA POWER API / IMD Baseline
+Kerala,Wayanad,2020-04,41.6,27.7,NASA POWER API / IMD Baseline
+Kerala,Wayanad,2020-05,114.3,26.3,NASA POWER API / IMD Baseline
+Kerala,Wayanad,2020-06,219.2,23.6,NASA POWER API / IMD Baseline
+Kerala,Wayanad,2020-07,323.5,22.6,NASA POWER API / IMD Baseline
+Kerala,Wayanad,2020-08,320.1,22.7,NASA POWER API / IMD Baseline
+Kerala,Wayanad,2020-09,291.2,22.3,NASA POWER API / IMD Baseline
+Kerala,Wayanad,2020-10,145.3,22.5,NASA POWER API / IMD Baseline
+Kerala,Wayanad,2020-11,133.5,22.6,NASA POWER API / IMD Baseline
+Kerala,Wayanad,2020-12,51.4,21.9,NASA POWER API / IMD Baseline

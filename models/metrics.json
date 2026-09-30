@@ -1,0 +1,21 @@
+{
+  "model_type": "RandomForestClassifier",
+  "f1_score": 0.9555,
+  "roc_auc": 0.9816,
+  "feature_importances": {
+    "elevation": 0.0487,
+    "slope": 0.2467,
+    "aspect": 0.0409,
+    "rainfall": 0.0364,
+    "drainage_density": 0.042,
+    "distance_to_drainage": 0.0459,
+    "distance_to_spring": 0.0547,
+    "fracture_density": 0.2515,
+    "distance_to_fault": 0.1404,
+    "land_use_code": 0.0149,
+    "soil_permeability": 0.0636,
+    "lithology_code": 0.0143
+  },
+  "num_training_samples": 800,
+  "is_synthetic_model": true
+}
