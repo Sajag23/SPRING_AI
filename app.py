@@ -467,13 +467,16 @@ def render_district_side_panel(dist_pack):
     if st.button("📥 Generate District Executive Report (PDF)", key=f"pdf_btn_{clean_dist_key}", use_container_width=True):
         os.makedirs("reports", exist_ok=True)
         generate_district_executive_report(dist_pack, report_file)
+        st.session_state[f"exec_pdf_ready_{clean_dist_key}"] = True
         st.success(f"Generated Executive Dossier for {cfg['district']}!")
 
-    if os.path.exists(report_file):
-        with open(report_file, "rb") as f:
+    if os.path.exists(report_file) or st.session_state.get(f"exec_pdf_ready_{clean_dist_key}"):
+        if os.path.exists(report_file):
+            with open(report_file, "rb") as f:
+                pdf_data = f.read()
             st.download_button(
                 label=f"⬇️ Download {cfg['district']} Executive PDF Dossier",
-                data=f,
+                data=pdf_data,
                 file_name=f"SPRING_AI_{clean_dist_key}_Executive_Dossier.pdf",
                 mime="application/pdf",
                 key=f"dl_btn_{clean_dist_key}",
@@ -789,13 +792,25 @@ else:
                 sel_s = st.selectbox("Select Candidate Site ID for Technical PDF Export:", df_int["site_id"])
                 site_d = df_int[df_int["site_id"] == sel_s].iloc[0]
                 sp_d = df_springs[df_springs["spring_id"] == site_d["nearest_spring_id"]].iloc[0] if not df_springs.empty else {}
+                pdf_path = f"reports/Report_{sel_s}.pdf"
                 
-                if st.button("📥 Generate Site Technical Dossier (PDF)"):
+                if st.button("📥 Generate Site Technical Dossier (PDF)", key=f"btn_gen_{sel_s}"):
                     os.makedirs("reports", exist_ok=True)
-                    pdf_path = f"reports/Report_{sel_s}.pdf"
                     generate_spring_pdf_report(sp_d.to_dict() if hasattr(sp_d, 'to_dict') else {}, site_d.to_dict(), pdf_path)
-                    with open(pdf_path, "rb") as f:
-                        st.download_button("Click Here to Download Site Technical PDF", f, file_name=f"SPRING_AI_{sel_s}.pdf", mime="application/pdf")
+                    st.session_state[f"site_pdf_ready_{sel_s}"] = True
+                    st.success(f"Generated Technical PDF Dossier for {sel_s}!")
+
+                if st.session_state.get(f"site_pdf_ready_{sel_s}") or os.path.exists(pdf_path):
+                    if os.path.exists(pdf_path):
+                        with open(pdf_path, "rb") as f:
+                            site_pdf_data = f.read()
+                        st.download_button(
+                            label=f"⬇️ Download Site Technical PDF ({sel_s})",
+                            data=site_pdf_data,
+                            file_name=f"SPRING_AI_{sel_s}.pdf",
+                            mime="application/pdf",
+                            key=f"dl_site_{sel_s}"
+                        )
 
             if st.button("🚀 Retrain AI Model on Field Logs"):
                 train_ml_models()

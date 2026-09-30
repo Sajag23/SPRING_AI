@@ -25,6 +25,12 @@ class PDFReport(FPDF):
         self.set_text_color(128, 128, 128)
         self.cell(0, 10, f'Page {self.page_no()} | SPRING-AI Decision Support Estimate - Requires Field Validation', border=0, new_x='RIGHT', new_y='TOP', align='C')
 
+def clean_text(val, fallback="N/A"):
+    if val is None:
+        return fallback
+    s = str(val).replace('—', '-').replace('–', '-').replace('₹', 'INR ')
+    return s.encode('latin-1', 'replace').decode('latin-1').replace('?', '-')
+
 def generate_spring_pdf_report(spring_data, site_data=None, output_path="reports/spring_report.pdf"):
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     pdf = PDFReport()
@@ -34,20 +40,20 @@ def generate_spring_pdf_report(spring_data, site_data=None, output_path="reports
     # 1. Executive Summary & Study Area
     pdf.set_font("Helvetica", "B", 12)
     pdf.set_text_color(18, 55, 42) # Forest Green
-    sp_name = str(spring_data.get('spring_name', 'N/A')).replace('—', '-').replace('–', '-')
-    sp_id = str(spring_data.get('spring_id', 'N/A')).replace('—', '-').replace('–', '-')
+    sp_name = clean_text(spring_data.get('spring_name', 'N/A'))
+    sp_id = clean_text(spring_data.get('spring_id', 'N/A'))
     pdf.cell(0, 8, f"1. Target Spring Profile: {sp_name} ({sp_id})", border=0, new_x='LMARGIN', new_y='NEXT')
     
     pdf.set_font("Helvetica", "", 10)
     pdf.set_text_color(30, 41, 59)
-    pdf.cell(95, 6, f"Village: {spring_data.get('village', 'N/A')}", border=0, new_x='RIGHT', new_y='TOP')
-    pdf.cell(95, 6, f"District: {spring_data.get('district', 'N/A')}", border=0, new_x='LMARGIN', new_y='NEXT')
-    pdf.cell(95, 6, f"Latitude: {spring_data.get('latitude', 'N/A')} N", border=0, new_x='RIGHT', new_y='TOP')
-    pdf.cell(95, 6, f"Longitude: {spring_data.get('longitude', 'N/A')} E", border=0, new_x='LMARGIN', new_y='NEXT')
-    pdf.cell(95, 6, f"Elevation: {spring_data.get('elevation', 'N/A')} m MSL", border=0, new_x='RIGHT', new_y='TOP')
-    pdf.cell(95, 6, f"Spring Type: {spring_data.get('spring_type', 'N/A')}", border=0, new_x='LMARGIN', new_y='NEXT')
-    pdf.cell(95, 6, f"Current Discharge: {spring_data.get('current_discharge_lpm', 'N/A')} LPM", border=0, new_x='RIGHT', new_y='TOP')
-    pdf.cell(95, 6, f"Seasonal Status: {spring_data.get('seasonal_status', 'N/A')}", border=0, new_x='LMARGIN', new_y='NEXT')
+    pdf.cell(95, 6, f"Village: {clean_text(spring_data.get('village', 'N/A'))}", border=0, new_x='RIGHT', new_y='TOP')
+    pdf.cell(95, 6, f"District: {clean_text(spring_data.get('district', 'N/A'))}", border=0, new_x='LMARGIN', new_y='NEXT')
+    pdf.cell(95, 6, f"Latitude: {clean_text(spring_data.get('latitude', 'N/A'))} N", border=0, new_x='RIGHT', new_y='TOP')
+    pdf.cell(95, 6, f"Longitude: {clean_text(spring_data.get('longitude', 'N/A'))} E", border=0, new_x='LMARGIN', new_y='NEXT')
+    pdf.cell(95, 6, f"Elevation: {clean_text(spring_data.get('elevation', 'N/A'))} m MSL", border=0, new_x='RIGHT', new_y='TOP')
+    pdf.cell(95, 6, f"Spring Type: {clean_text(spring_data.get('spring_type', 'N/A'))}", border=0, new_x='LMARGIN', new_y='NEXT')
+    pdf.cell(95, 6, f"Current Discharge: {clean_text(spring_data.get('current_discharge_lpm', 'N/A'))} LPM", border=0, new_x='RIGHT', new_y='TOP')
+    pdf.cell(95, 6, f"Seasonal Status: {clean_text(spring_data.get('seasonal_status', 'N/A'))}", border=0, new_x='LMARGIN', new_y='NEXT')
     pdf.ln(4)
 
     # 2. AI Model Recharge Suitability & Factors
@@ -109,15 +115,18 @@ def generate_district_executive_report(dist_pack, output_path="reports/district_
     # 1. District Profile & Hydrogeology
     pdf.set_font("Helvetica", "B", 12)
     pdf.set_text_color(18, 55, 42)
-    pdf.cell(0, 8, f"1. District Springshed Profile: {cfg.get('district', 'N/A')}, {cfg.get('state', 'N/A')}", border=0, new_x='LMARGIN', new_y='NEXT')
+    dist_name = clean_text(cfg.get('district', 'N/A'))
+    state_name = clean_text(cfg.get('state', 'N/A'))
+    pdf.cell(0, 8, f"1. District Springshed Profile: {dist_name}, {state_name}", border=0, new_x='LMARGIN', new_y='NEXT')
 
     pdf.set_font("Helvetica", "", 10)
     pdf.set_text_color(30, 41, 59)
-    pdf.cell(95, 6, f"State: {cfg.get('state', 'N/A')}", border=0, new_x='RIGHT', new_y='TOP')
-    pdf.cell(95, 6, f"Governing Agency: {cfg.get('govt_agency', 'CGWB & IMD')}", border=0, new_x='LMARGIN', new_y='NEXT')
-    pdf.cell(95, 6, f"Mean Precipitation: {cfg.get('rainfall_mean', 'N/A')} mm", border=0, new_x='RIGHT', new_y='TOP')
-    pdf.cell(95, 6, f"Elevation Range: {cfg.get('elev_range', [0,0])[0]}-{cfg.get('elev_range', [0,0])[1]}m MSL", border=0, new_x='LMARGIN', new_y='NEXT')
-    litho_str = ", ".join(cfg.get("lithology_types", ["Hard Rock"]))[:60]
+    pdf.cell(95, 6, f"State: {state_name}", border=0, new_x='RIGHT', new_y='TOP')
+    pdf.cell(95, 6, f"Governing Agency: {clean_text(cfg.get('govt_agency', 'CGWB & IMD'))}", border=0, new_x='LMARGIN', new_y='NEXT')
+    pdf.cell(95, 6, f"Mean Precipitation: {clean_text(cfg.get('rainfall_mean', 'N/A'))} mm", border=0, new_x='RIGHT', new_y='TOP')
+    elev_r = cfg.get('elev_range', [0,0])
+    pdf.cell(95, 6, f"Elevation Range: {elev_r[0]}-{elev_r[1]}m MSL", border=0, new_x='LMARGIN', new_y='NEXT')
+    litho_str = clean_text(", ".join(cfg.get("lithology_types", ["Hard Rock"]))[:60])
     pdf.set_x(10)
     pdf.multi_cell(0, 6, f"Primary Lithology: {litho_str}")
     pdf.ln(4)
@@ -128,13 +137,13 @@ def generate_district_executive_report(dist_pack, output_path="reports/district_
     pdf.cell(0, 8, "2. Census ST Demographics & Tribal Community Profile", border=0, new_x='LMARGIN', new_y='NEXT')
 
     pdf.set_font("Helvetica", "", 10)
-    tribes_str = ", ".join(tribal.get("tribes", ["Tribal Communities"]))
+    tribes_str = clean_text(", ".join(tribal.get("tribes", ["Tribal Communities"])))
     pdf.cell(95, 6, f"Scheduled Tribe Population: {tribal.get('st_pop_pct', 50)}%", border=0, new_x='RIGHT', new_y='TOP')
     pdf.cell(95, 6, f"Tribal Households Served: {tribal.get('households_impacted', 0):,}", border=0, new_x='LMARGIN', new_y='NEXT')
     pdf.set_x(10)
     pdf.multi_cell(0, 6, f"Tribes Living in Region: {tribes_str}")
     pdf.set_x(10)
-    pdf.multi_cell(0, 6, f"Primary Livelihood Base: {tribal.get('livelihood', 'Agriculture & NTFP')}")
+    pdf.multi_cell(0, 6, f"Primary Livelihood Base: {clean_text(tribal.get('livelihood', 'Agriculture & NTFP'))}")
     pdf.ln(4)
 
     # 3. Hydrological Catchment & Water Storage Impact
@@ -147,7 +156,7 @@ def generate_district_executive_report(dist_pack, output_path="reports/district_
     pdf.cell(95, 6, f"Annual Storage Potential: {water.get('storage_ml', 0)} Million Liters ({water.get('storage_cum', 0):,} m3)", border=0, new_x='LMARGIN', new_y='NEXT')
     pdf.cell(95, 6, f"Estimated Water Table Rise: +{water.get('water_table_rise_m', 0)} meters", border=0, new_x='RIGHT', new_y='TOP')
     pdf.cell(95, 6, f"Summer Baseflow Extension: +{water.get('summer_flow_extension_days', 0)} Days", border=0, new_x='LMARGIN', new_y='NEXT')
-    pdf.cell(95, 6, f"Daily Water Augmentation: {water.get('daily_water_added_lpd', 'N/A')}", border=0, new_x='LMARGIN', new_y='NEXT')
+    pdf.cell(95, 6, f"Daily Water Augmentation: {clean_text(water.get('daily_water_added_lpd', 'N/A'))}", border=0, new_x='LMARGIN', new_y='NEXT')
     pdf.ln(4)
 
     # 4. Financial Budget & MGNREGA Labor Generation
@@ -169,10 +178,10 @@ def generate_district_executive_report(dist_pack, output_path="reports/district_
     pdf.set_font("Helvetica", "I", 8)
     pdf.set_text_color(80, 80, 80)
     pdf.set_x(10)
-    pdf.multi_cell(0, 4, SCIENTIFIC_DISCLAIMER.replace('—', '-').replace('–', '-'))
+    pdf.multi_cell(0, 4, clean_text(SCIENTIFIC_DISCLAIMER))
     pdf.ln(2)
     pdf.set_x(10)
-    pdf.multi_cell(0, 4, DEMO_DATA_DISCLAIMER.replace('—', '-').replace('–', '-'))
+    pdf.multi_cell(0, 4, clean_text(DEMO_DATA_DISCLAIMER))
 
     pdf.output(output_path)
     return output_path
