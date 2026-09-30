@@ -5,6 +5,7 @@ Production-Quality GeoAI Platform & Decision-Support System
 
 import os
 import io
+import time
 import zipfile
 import datetime
 import streamlit as st
@@ -416,6 +417,28 @@ st.markdown("""
         border: 1px solid #cbd5e1 !important;
         border-radius: 8px !important;
     }
+
+    /* DYNAMIC SEARCHING DOTS & SPINNER ANIMATIONS */
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    @keyframes dots123 {
+        0%, 33.3% { content: "."; }
+        33.4%, 66.6% { content: ".."; }
+        66.7%, 100% { content: "..."; }
+    }
+
+    .searching-dots-live::after {
+        content: ".";
+        display: inline-block;
+        width: 24px;
+        text-align: left;
+        animation: dots123 1.2s steps(1) infinite;
+        font-weight: 800;
+        color: #10B981;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -587,13 +610,13 @@ if st.session_state.app_mode == "🌐 0. Platform Overview & Mission":
     render_landing_page(on_launch_portal=launch_portal_module1)
 else:
     # --------------------------------------------------------------------------
-    # GEOAI PORTAL (PAGE 2) TOP NAVIGATION & REGION CONTROLS
+    # GEOAI PORTAL (PAGE 2) TOP HEADER
     # --------------------------------------------------------------------------
-    col_nav_l, col_nav_st, col_nav_dt = st.columns([1.8, 1, 1.2])
+    col_hdr_l, col_hdr_r = st.columns([3.5, 1.2])
 
-    with col_nav_l:
+    with col_hdr_l:
         st.markdown(
-            '<div class="portal-header-box">'
+            '<div class="portal-header-box" style="margin-bottom:8px;">'
             '<div style="display:flex; align-items:center; gap:10px;">'
             '<svg width="26" height="26" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">'
             '<path d="M20 75L50 25L80 75H20Z" fill="#62B6CB"/>'
@@ -605,59 +628,14 @@ else:
             '</div>',
             unsafe_allow_html=True
         )
-        if st.button("🌐 ← Back to Overview & Mission", key="btn_back_to_overview"):
+
+    with col_hdr_r:
+        st.markdown("<div style='height:4px;'></div>", unsafe_allow_html=True)
+        if st.button("🌐 ← Back to Overview & Mission", key="btn_back_to_overview", use_container_width=True):
             st.session_state.app_mode = "🌐 0. Platform Overview & Mission"
             if "master_nav_radio" in st.session_state:
                 del st.session_state["master_nav_radio"]
             st.rerun()
-
-    with col_nav_st:
-        state_options = ["🇮🇳 All-India (17 States)"] + list(TRIBAL_STATE_DISTRICTS_MAP.keys())
-        selected_state = st.selectbox(
-            "📌 State / National View:",
-            options=state_options,
-            index=0,
-            key="global_state_select"
-        )
-
-    is_pan_india = (selected_state == "🇮🇳 All-India (17 States)")
-
-    with col_nav_dt:
-        if is_pan_india:
-            all_districts_list = []
-            for st_k, d_list in TRIBAL_STATE_DISTRICTS_MAP.items():
-                for d_item in d_list:
-                    all_districts_list.append(f"{d_item} ({st_k})")
-            district_options = ["🌐 All 100+ Tribal Districts"] + sorted(all_districts_list)
-            selected_district_name = st.selectbox(
-                "🏛️ Target District:",
-                options=district_options,
-                index=0,
-                key="global_district_select_all"
-            )
-        else:
-            state_dists = TRIBAL_STATE_DISTRICTS_MAP[selected_state]
-            district_options = [f"🌐 All Districts in {selected_state}"] + state_dists
-            selected_district_name = st.selectbox(
-                "🏛️ Target District:",
-                options=district_options,
-                index=0,
-                key="global_district_select_state"
-            )
-
-    # Load Selected District Datasets
-    dist_pack = get_district_datasets(selected_district_name, state_name=selected_state)
-
-    if "dist_pack_override" in st.session_state and not is_pan_india and "All" not in selected_district_name:
-        dist_pack = st.session_state["dist_pack_override"]
-
-    dist_cfg = dist_pack["config"]
-    df_springs = dist_pack["springs"]
-    df_grid = dist_pack["grid"]
-    df_int = dist_pack["interventions"]
-    df_discharge = dist_pack["discharge"]
-    df_validations = load_field_validations_data()
-    predictor = RechargePredictor()
 
     # Master Portal Navigation Tab Bar
     portal_nav_options = [
@@ -687,6 +665,143 @@ else:
         dash_tab_selected = portal_nav_options[0]
 
     st.session_state.app_mode = dash_tab_selected
+
+    # --------------------------------------------------------------------------
+    # REGION CONTROLS & SEARCH BAR (White Area Left Above Pan-India / Module Title)
+    # --------------------------------------------------------------------------
+    col_ctrl_st, col_ctrl_dt, col_ctrl_btn, col_ctrl_sp = st.columns([1.3, 1.6, 0.9, 1.2])
+
+    with col_ctrl_st:
+        state_options = ["🇮🇳 All-India (17 States)"] + list(TRIBAL_STATE_DISTRICTS_MAP.keys())
+        selected_state = st.selectbox(
+            "📌 State / National View:",
+            options=state_options,
+            index=0,
+            key="global_state_select"
+        )
+
+    is_pan_india = (selected_state == "🇮🇳 All-India (17 States)")
+
+    with col_ctrl_dt:
+        if is_pan_india:
+            all_districts_list = []
+            for st_k, d_list in TRIBAL_STATE_DISTRICTS_MAP.items():
+                for d_item in d_list:
+                    all_districts_list.append(f"{d_item} ({st_k})")
+            district_options = ["🌐 All 100+ Tribal Districts"] + sorted(all_districts_list)
+            selected_district_name = st.selectbox(
+                "🏛️ Target District:",
+                options=district_options,
+                index=0,
+                key="global_district_select_all"
+            )
+        else:
+            state_dists = TRIBAL_STATE_DISTRICTS_MAP[selected_state]
+            district_options = [f"🌐 All Districts in {selected_state}"] + state_dists
+            selected_district_name = st.selectbox(
+                "🏛️ Target District:",
+                options=district_options,
+                index=0,
+                key="global_district_select_state"
+            )
+
+    with col_ctrl_btn:
+        st.markdown("<div style='height: 28px;'></div>", unsafe_allow_html=True)
+        search_clicked = st.button("🔍 Search", key="btn_trigger_search", type="primary", use_container_width=True)
+
+    with col_ctrl_sp:
+        st.markdown(
+            f'<div style="background:#ffffff; border:1px solid #cbd5e1; border-radius:10px; padding:9px 14px; margin-top:28px; font-size:12.5px; color:#334155; display:flex; align-items:center; gap:8px; box-shadow:0 1px 3px rgba(0,0,0,0.04);">'
+            f'<span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#10B981;"></span>'
+            f'<span><b>Active Target:</b> {selected_district_name[:28]}</span>'
+            f'</div>',
+            unsafe_allow_html=True
+        )
+
+    # --------------------------------------------------------------------------
+    # DYNAMIC SEARCHING EFFECT (Dots changing: 1 dot -> 2 dots -> 3 dots)
+    # --------------------------------------------------------------------------
+    search_slot = st.empty()
+
+    if "last_searched_item" not in st.session_state:
+        st.session_state["last_searched_item"] = (selected_state, selected_district_name)
+        should_animate_search = search_clicked
+    else:
+        should_animate_search = search_clicked or (
+            st.session_state["last_searched_item"] != (selected_state, selected_district_name)
+        )
+
+    if should_animate_search:
+        st.session_state["last_searched_item"] = (selected_state, selected_district_name)
+        for num_dots in [1, 2, 3]:
+            dots_text = "." * num_dots
+            search_slot.markdown(f"""
+                <div style="
+                    background: linear-gradient(135deg, #064E3B 0%, #0F382A 100%);
+                    border: 1px solid #10B981;
+                    border-radius: 10px;
+                    padding: 12px 20px;
+                    margin: 8px 0 16px 0;
+                    color: #FFFFFF;
+                    display: flex;
+                    align-items: center;
+                    gap: 14px;
+                    box-shadow: 0 4px 14px rgba(6, 78, 59, 0.25);
+                    font-family: 'Space Grotesk', sans-serif;
+                ">
+                    <div style="
+                        width: 20px;
+                        height: 20px;
+                        border: 3px solid rgba(52, 211, 153, 0.3);
+                        border-top-color: #34D399;
+                        border-radius: 50%;
+                        animation: spin 0.8s linear infinite;
+                    "></div>
+                    <div style="font-size: 14.5px; font-weight: 600;">
+                        <span style="color: #6EE7B7; font-weight: 800; font-size: 16px;">Searching<span style="display:inline-block; width:26px; text-align:left; color:#A7F3D0; font-weight:900;">{dots_text}</span></span>
+                        <span style="color: #E2E8F0; font-size: 13.5px; font-weight: 500; margin-left: 6px;">Querying GeoAI GIS hydrogeological datasets for <b>{selected_district_name}</b></span>
+                    </div>
+                </div>
+            """, unsafe_allow_html=True)
+            time.sleep(0.35)
+
+        # Brief confirmation badge
+        search_slot.markdown(f"""
+            <div style="
+                background: #F0FDF4;
+                border: 1px solid #86EFAC;
+                border-radius: 8px;
+                padding: 8px 16px;
+                margin: 6px 0 12px 0;
+                color: #166534;
+                font-size: 13px;
+                font-weight: 700;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            ">
+                <span>✅</span>
+                <span>Hydrogeological GIS data loaded for <b>{selected_district_name}</b></span>
+            </div>
+        """, unsafe_allow_html=True)
+        time.sleep(0.3)
+        search_slot.empty()
+    else:
+        st.session_state["last_searched_item"] = (selected_state, selected_district_name)
+
+    # Load Selected District Datasets
+    dist_pack = get_district_datasets(selected_district_name, state_name=selected_state)
+
+    if "dist_pack_override" in st.session_state and not is_pan_india and "All" not in selected_district_name:
+        dist_pack = st.session_state["dist_pack_override"]
+
+    dist_cfg = dist_pack["config"]
+    df_springs = dist_pack["springs"]
+    df_grid = dist_pack["grid"]
+    df_int = dist_pack["interventions"]
+    df_discharge = dist_pack["discharge"]
+    df_validations = load_field_validations_data()
+    predictor = RechargePredictor()
 
     st.markdown("---")
 
